@@ -9,6 +9,8 @@
 //         </div>
 //      );
 // }
+// export default Cart;
+
 import Image from "next/image";
 import dayjs from "dayjs";
 
@@ -24,7 +26,7 @@ type CartProps = {
         photos: number;
     }[];
 }
-// export default Cart;
+
 const Cart = ({ dataProfile }: CartProps) => {
     const formatDate = (dateString: string) => {
         const age = dayjs().diff(dayjs(dateString), 'year');
