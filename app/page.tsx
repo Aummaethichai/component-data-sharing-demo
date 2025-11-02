@@ -1,10 +1,13 @@
 "use client"
 // import Image from "next/image";
-import { useState } from "react";
+import { useState, createContext } from "react";
 import Cart from "./components/Cart";
-export default function Home() {
+import FirstComponent from "./components/FirstComponent";
+import { Profile } from "./types/data.types";
+export const DataContext = createContext<Profile[]>([]);;
 
-  const [data, setData] = useState([
+export default function Home() {
+  const [data, setData] = useState<Profile[]>([
     {
       id: 1,
       img: "/images/profile.jpg",
@@ -14,12 +17,16 @@ export default function Home() {
       city: "Bangkok",
       email: "Maethichai8968@gmail.com",
       likes: 99,
-      photos: 100
+      photos: 100,
+      github: "https://github.com/Aummaethichai"
     }
   ])
   return (
-    <div className="flex w-full min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex w-full flex-col min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <Cart dataProfile={data} />
+      <DataContext.Provider value={data}>
+        <FirstComponent />
+      </DataContext.Provider>
     </div>
   );
 }

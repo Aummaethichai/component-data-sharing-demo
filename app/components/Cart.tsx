@@ -13,6 +13,7 @@
 
 import Image from "next/image";
 import dayjs from "dayjs";
+import FirstComponent from "./FirstComponent";
 
 type CartProps = {
     dataProfile: {
@@ -36,7 +37,7 @@ const Cart = ({ dataProfile }: CartProps) => {
         <div className="flex flex-col justify-center w-full h-full items-center ">
             <h1 className="">Profile Card</h1>
             {dataProfile.map((val) => (
-                <div key={val.id} className="flex flex-col justify-center items-center border p-4 m-4 rounded-lg shadow-lg bg-white gap-1">
+                <div key={val.id} className="flex flex-col justify-center items-center border p-4 m-4 rounded-lg shadow-lg bg-white gap-1 dark:text-black">
                     <h3 className="text-cyan-800">{val.name}</h3>
                     <Image src={val.img} width={200} height={200} alt="Profile Image" />
                     {/* <h4>{val.name}</h4> */}
